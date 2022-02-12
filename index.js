@@ -43,12 +43,16 @@ const getAnswer = async (question) => {
 };
 
 app.get("/", async function (req, res) {
-  const { question } = req.query;  
+  const { question } = req.query;
   const answers = await getAnswer(question);
   const response = answers.reverse().map((doc) => {
     return { gurmukhi: doc.metadata, translation: doc.text };
   });
   res.json({ response });
+});
+
+app.get("/demo", function (req, res) {
+  res.sendFile("./index.html", { root: __dirname });
 });
 
 app.listen(3030);

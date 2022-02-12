@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hazur</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hazur</title>
 </head>
-<script>
 
-</script>
-<style>
-    
-</style>
+
 <body>
-    
-
+	<h1 id="question"></h1>
+	<div id="answers"></div>
 </body>
+<style>
+	.gurmukhi:first-child,
+	.translation:first-child {
+		font-size: 24px;
+	}
+</style>
+<script>
+	function getAnswers() {
+		const question = prompt("Enter your question");
+		document.getElementById("question").innerHTML = question;
+		fetch('http://localhost:3030/?question=' + question)
+			.then(response => response.json())
+			.then(data => {
+				console.log(data.response);
+				data.response.forEach(element => {
+					console.log(element);
+					document.getElementById("answers").innerHTML += "<p class='gurmukhi'>" + element.gurmukhi + "</p><p class='translation'>" + element.translation + "</p>";
+				});
+			});
+	}
+	getAnswers();
+</script>
+
 </html>
