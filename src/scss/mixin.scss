@@ -1,0 +1,7 @@
+@mixin load_fonts($name, $fontfile) {
+  @font-face {
+    font-display: block;
+    font-family: $name;
+    src: url("/public/fonts/" + $fontfile + "?v=1");
+  }
+}

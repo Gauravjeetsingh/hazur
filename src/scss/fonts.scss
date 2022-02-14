@@ -1,0 +1,11 @@
+$fontlist: (
+  brandon_thin: "BrandonGrotesque-Thin.ttf",
+  brandon_light: "BrandonGrotesque-Light.ttf",
+  brandon_regular: "BrandonGrotesque-Regular.ttf",
+  brandon_medium: "BrandonGrotesque-Medium.ttf",
+  brandon_bold: "BrandonGrotesque-Bold.ttf",
+);
+
+@each $name, $file in $fontlist {
+  @include load_fonts($name, $file);
+}

@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;700&display=swap");
+@font-face {
+  font-display: block;
+  font-family: brandon_thin;
+  src: url("/public/fonts/BrandonGrotesque-Thin.ttf?v=1");
+}
+@font-face {
+  font-display: block;
+  font-family: brandon_light;
+  src: url("/public/fonts/BrandonGrotesque-Light.ttf?v=1");
+}
+@font-face {
+  font-display: block;
+  font-family: brandon_regular;
+  src: url("/public/fonts/BrandonGrotesque-Regular.ttf?v=1");
+}
+@font-face {
+  font-display: block;
+  font-family: brandon_medium;
+  src: url("/public/fonts/BrandonGrotesque-Medium.ttf?v=1");
+}
+@font-face {
+  font-display: block;
+  font-family: brandon_bold;
+  src: url("/public/fonts/BrandonGrotesque-Bold.ttf?v=1");
+}
+.content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 300px;
+}
+.message-container .message {
+  padding: 8px 24px;
+  border-radius: 0px 25px 25px 25px;
+  background-color: rgba(127, 124, 164, 0.07);
+  font-family: "brandon_bold", "sans-serif";
+  display: inline-block;
+  margin-bottom: 32px;
+}
+.message-container .message .msg-text {
+  font-size: 24px;
+  color: #666;
+}
+.message-container .result {
+  margin-bottom: 32px;
+}
+.message-container .result div {
+  background-color: rgba(164, 136, 124, 0.07);
+  padding: 8px 24px;
+  border-radius: 0px 25px 25px 25px;
+}
+.message-container .result p {
+  margin: 4px;
+}
+.message-container .result .label {
+  font-size: 12px;
+  color: #FA6B2D;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.message-container .result .gurmukhi {
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 24px;
+  font-weight: 700;
+}
+.message-container .result .top-result {
+  color: #333;
+  max-width: 524px;
+  margin-bottom: 16px;
+}
+.message-container .result .other-results {
+  max-width: 400px;
+}
+.message-container .result .other-results .gurmukhi, .message-container .result .other-results .translation {
+  font-size: 14px;
+}
+.message-container .result .other-results .translation {
+  margin-bottom: 24px;
+}
+
+.question-form {
+  width: 100%;
+  border-radius: 100px;
+  height: 72px;
+  border: 2px solid rgba(100, 129, 228, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.question-form input {
+  height: 64px;
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  background-color: transparent;
+  margin-left: 24px;
+  font-size: 32px;
+  font-family: "brandon_regular", "sans-serif";
+}
+.question-form button {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  margin-right: 8px;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 15%;
+  max-width: 280px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: -24px;
+  padding: 16px 0px 16px 40px;
+  background-color: #f6f7f9;
+}
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+}
+.sidebar .sidebar-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FA6B2D;
+  font-family: "brandon_bold", "sans-serif";
+  font-weight: normal;
+}
+.sidebar div {
+  width: 100%;
+}
+.sidebar div.utils {
+  flex-grow: 1;
+}
+.sidebar .source {
+  margin-bottom: 8px;
+}
+.sidebar .source > * {
+  vertical-align: middle;
+}
+.sidebar .source .circle {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+.sidebar .source .circle.circle-G > path {
+  fill: #FA6B2D;
+}
+.sidebar .source .circle.circle-G::after {
+  background-color: #0dd273;
+}
+.sidebar .source .circle.circle-D > path {
+  fill: #17298a;
+}
+.sidebar .source .circle.circle-V > path {
+  fill: #eecc18;
+}
+.sidebar .source .circle.circle-M > path {
+  fill: #fd5d5d;
+}
+.sidebar .source .circle::after {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #aaa;
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  bottom: 2px;
+  right: 0px;
+}
+.sidebar .source .source-name {
+  font-size: 16px;
+  font-family: "brandon_medium", "sans-serif";
+  text-indent: 8px;
+  display: inline-block;
+}
+
+.branding {
+  text-align: center;
+}
+.branding .brand-text {
+  color: #333;
+  display: inline-block;
+  font-family: "brandon_medium", "sans-serif";
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 24px;
+  letter-spacing: 0.25em;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(247.44deg, #E5E8EE 0.45%, #EEEBE5 100%);
+  display: flex;
+  align-items: center;
+  font-family: "brandon_regular", sans-serif;
+  color: #666;
+}
+
+.page-wrapper {
+  max-width: 1200px;
+  width: 95%;
+  border-radius: 25px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 80vh;
+  box-shadow: 15px 15px 90px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  min-width: 320px;
+  flex-grow: 1;
+  border-radius: 25px;
+  background-color: #f9f9f9;
+  box-shadow: 15px 15px 90px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  padding: 24px;
+}
+
+/*# sourceMappingURL=main.css.map */

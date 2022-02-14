@@ -1,13 +1,17 @@
 const axios = require("axios");
 const express = require("express");
+const dotenv = require('dotenv');
+const path = require('path')
+
+dotenv.config();
 
 const app = express();
 
-const OPENAI = "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";
+const { OPENAI_API_KEY } = process.env;
 
-const getAnswer = async (question) => {
+const getAnswer = async (question, ai) => {
   const data = JSON.stringify({
-    file: "file-j8jSzX073l6bXOWbzHWZqxL6",
+    file: process.env.OPENAI_FILE,
     question,
     search_model: "ada",
     model: "curie",
@@ -26,7 +30,7 @@ const getAnswer = async (question) => {
     headers: {
       "Content-Type": "application/json",
       "Content-Length": data.length,
-      Authorization: `Bearer ${OPENAI}`,
+      Authorization: `Bearer ${OPENAI_API_KEY}`,
     },
   };
 
@@ -36,23 +40,30 @@ const getAnswer = async (question) => {
     .post(options.hostname, data, { headers: options.headers })
     .then((res) => {
       const selectedDocuments = res.data.selected_documents;
-      return selectedDocuments;
+      if (ai) {
+        return [{text: res.data.answers, metadata: ''}]
+      } else {
+        return selectedDocuments;
+      }
     })
     .catch((err) => console.log(err));
   return apiCall;
 };
 
-app.get("/", async function (req, res) {
+app.get("/api", async function (req, res) {
   const { question } = req.query;
-  const answers = await getAnswer(question);
+  const { ai }  = req.query
+  const answers = await getAnswer(question, ai);
   const response = answers.reverse().map((doc) => {
     return { gurmukhi: doc.metadata, translation: doc.text };
   });
   res.json({ response });
 });
 
-app.get("/demo", function (req, res) {
-  res.sendFile("./index.html", { root: __dirname });
+app.use('/public', express.static(path.join(__dirname, '../public')))
+
+app.get("/", function (req, res) {
+  res.sendFile("./pages/index.html", { root: __dirname });
 });
 
 app.listen(3030);
