@@ -8,6 +8,8 @@ dotenv.config();
 const app = express();
 
 const { OPENAI_API_KEY } = process.env;
+const ON_HEROKU = 'ON_HEROKU' in process.env;
+const port = ON_HEROKU ? process.env.PORT : 3030;
 
 const getAnswer = async (question, ai) => {
   const data = JSON.stringify({
@@ -66,4 +68,4 @@ app.get("/", function (req, res) {
   res.sendFile("./pages/index.html", { root: __dirname });
 });
 
-app.listen(3030);
+app.listen(port);
