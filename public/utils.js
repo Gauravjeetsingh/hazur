@@ -1,8 +1,10 @@
 const questionHtml = (question) => {
   const msgcount = document.querySelectorAll('.message').length;
-  return `<div class="message" id="msg-${msgcount}">
-					   <p class="msg-text">${question}</p>
-					</div>`;
+  return (
+    `<div class="message" id="msg-${msgcount}">
+      <p class="msg-text">${question}</p>
+    </div>`
+  )
 }
 
 const resultHtml = (topResult, otherResults) => {

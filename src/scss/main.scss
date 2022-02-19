@@ -19,8 +19,8 @@ body {
 }
 
 .page-wrapper {
-  max-width: 1200px;
-  width: 95%;
+  max-width: 1728px;
+  width: 90%;
   border-radius: 25px;
   margin: auto;
 
@@ -28,7 +28,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   overflow: hidden;
-  height: 80vh;
+  height: 90vh;
 
   box-shadow: 15px 15px 90px rgba(0, 0, 0, 0.1);
   .ham-icon {
