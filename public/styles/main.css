@@ -49,19 +49,32 @@
   margin-bottom: 16px;
 }
 
-.meta .avatar {
+.avatar {
   width: 46px;
   height: 46px;
   border-radius: 50%;
   background-color: #6481e4;
   text-align: center;
 }
-.meta .avatar > img {
+.avatar-sggs {
+  background-color: transparent;
+}
+.avatar > img {
   margin-top: 16px;
 }
-.meta .user {
+
+.message-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+.message-wrapper .message-content {
+  margin-left: 12px;
+}
+
+.user {
   font-size: 16px;
   font-family: "brandon_bold", sans-serif;
+  margin: 0;
 }
 
 .message-container {
