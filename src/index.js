@@ -1,14 +1,14 @@
 const axios = require("axios");
 const express = require("express");
-const dotenv = require('dotenv');
-const path = require('path')
+const dotenv = require("dotenv");
+const path = require("path");
 
 dotenv.config();
 
 const app = express();
 
 const { OPENAI_API_KEY } = process.env;
-const ON_HEROKU = 'ON_HEROKU' in process.env;
+const ON_HEROKU = "ON_HEROKU" in process.env;
 const port = ON_HEROKU ? process.env.PORT : 3030;
 
 const getAnswer = async (question, ai) => {
@@ -43,7 +43,7 @@ const getAnswer = async (question, ai) => {
     .then((res) => {
       const selectedDocuments = res.data.selected_documents;
       if (ai) {
-        return [{text: res.data.answers, metadata: ''}]
+        return [{ text: res.data.answers, metadata: "" }];
       } else {
         return selectedDocuments;
       }
@@ -54,15 +54,22 @@ const getAnswer = async (question, ai) => {
 
 app.get("/api", async function (req, res) {
   const { question } = req.query;
-  const { ai }  = req.query
+  const { ai } = req.query;
   const answers = await getAnswer(question, ai);
-  const response = answers.reverse().map((doc) => {
-    return { gurmukhi: doc.metadata, translation: doc.text };
-  });
-  res.json({ response });
+  try {
+    const response = answers.reverse().map((doc) => {
+      return { gurmukhi: doc.metadata, translation: doc.text };
+    });
+    res.json({ response });
+  } catch {
+    res.json({
+      error: true,
+      response:[{gurmukhi: 'no answer', translation: 'no data'}]
+    });
+  }
 });
 
-app.use('/public', express.static(path.join(__dirname, '../public')))
+app.use("/public", express.static(path.join(__dirname, "../public")));
 
 app.get("/", function (req, res) {
   res.sendFile("./pages/index.html", { root: __dirname });

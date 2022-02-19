@@ -31,6 +31,7 @@
 
     .source {
         margin-bottom: 8px;
+        position: relative;
 
         > * {
             vertical-align: middle;
@@ -45,7 +46,7 @@
             &.circle-G {
                 & > path { fill: $orange; }
 
-                &::after {
+                & + .status {
                     background-color: $green;
                 }
             }
@@ -62,7 +63,7 @@
                 & > path { fill: $red; }
             }
 
-            &::after{
+            & + .status{
                 display: block;
                 width: 8px;
                 height: 8px;
@@ -71,7 +72,7 @@
                 border-radius: 50%;
                 position: absolute;
                 bottom: 2px;
-                right: 0px;
+                left: 16px;
             }
         }
 
