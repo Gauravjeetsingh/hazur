@@ -1,43 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;700&display=swap");
 
 @import "colors", "mixin", "fonts", "content", "sidebar";
 
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: linear-gradient(247.44deg, #E5E8EE 0.45%, #EEEBE5 100%);
-    display: flex;
-    align-items: center;
-    font-family: 'brandon_regular', sans-serif;
-    color: $dark-grey;
+  background: linear-gradient(247.44deg, #e5e8ee 0.45%, #eeebe5 100%);
+  display: flex;
+  align-items: center;
+  font-family: "brandon_regular", sans-serif;
+  color: $dark-grey;
 }
 
 .page-wrapper {
-    max-width: 1200px;
-    width: 95%;
-    border-radius: 25px;
-    margin: auto;
+  max-width: 1200px;
+  width: 95%;
+  border-radius: 25px;
+  margin: auto;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow: hidden;
-    height: 80vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 80vh;
 
-    box-shadow: 15px 15px 90px rgba(0,0,0,0.1);
-}
+  box-shadow: 15px 15px 90px rgba(0, 0, 0, 0.1);
+  .ham-icon {
+    display: none;
+  }
 
-.content {
-    min-width: 320px;
-    flex-grow: 1;
-    border-radius: 25px;
-    background-color: $almost-white;
-    box-shadow: 15px 15px 90px rgba(0,0,0,0.1);
-    z-index: 2;
-    padding: 24px;
+  @media (max-width: 1000px) {
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    border-radius: 0px;
+
+    .ham-icon {
+      display: block;
+      height: 18px;
+      position: fixed;
+      z-index: 5;
+      right: 24px;
+      top: 28px;
+      cursor: pointer;
+    }
+  }
 }

@@ -14,7 +14,11 @@
 	<script src="/public/utils.js"></script>
 
 	<div class="page-wrapper">
+		<img onclick="toggleSidebar()" class="ham-icon" src="/public/assets/icons/hamburger.svg" />
 		<div class="content">
+			<div class="header">
+				Shri Guru Granth Sahib ji
+			</div>
 			<div class="message-container"></div>
 			<div class="question-form">
 				<input type="text" id="question-input" placeholder="Type your question here">
@@ -29,7 +33,7 @@
 		</div>
 		<div class="sidebar">
 			<div class="utils">
-				<div class="source-container">
+				<div class="source-container source-container-mobile">
 					<h3 class="sidebar-label">Sources</h3>
 				</div>
 				
@@ -81,6 +85,12 @@
 						</div>`;
 		document.querySelector('.source-container').innerHTML += htmlCode;
 	});
+
+	document.onkeydown = pressedKey => {
+		if(pressedKey.key === 'Enter') {
+			getAnswers();
+		}
+	};
 </script>
 
 </html>

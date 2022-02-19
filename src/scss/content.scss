@@ -1,99 +1,122 @@
 .content {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  flex-grow: 1;
+  border-radius: 25px;
+  background-color: $almost-white;
+  box-shadow: 15px 15px 90px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+
+  @media (max-width: 1000px) {
+    border-radius: 0px;
+  }
+
+  .header {
+    font-family: "brandon_bold", sans-serif;
+    font-size: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+  }
 }
 
 .message-container {
-    flex-grow: 1;
-    overflow-y: auto;
-    height: 300px;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 300px;
 
-    .message {
-        padding: 8px 24px;
-        border-radius: 0px 25px 25px 25px;
-        background-color: $translucent-grey;
-        font-family: 'brandon_bold', 'sans-serif';
-        display: inline-block;
-        margin-bottom: 32px;
+  .message {
+    padding: 8px 24px;
+    border-radius: 0px 25px 25px 25px;
+    background-color: $translucent-grey;
+    font-family: "brandon_bold", "sans-serif";
+    display: inline-block;
+    margin-bottom: 32px;
 
-        .msg-text {
-            font-size: 24px;
-            color: $dark-grey;
-        }
+    .msg-text {
+      font-size: 24px;
+      color: $dark-grey;
+    }
+  }
+
+  .result {
+    margin-bottom: 32px;
+    div {
+      background-color: $translucent-orangish-grey;
+      padding: 8px 24px;
+      border-radius: 0px 25px 25px 25px;
+    }
+    p {
+      margin: 4px;
+    }
+    .label {
+      font-size: 12px;
+      color: $orange;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
 
-    .result {
-        margin-bottom: 32px;
-        div {
-            background-color: $translucent-orangish-grey;
-            padding: 8px 24px;
-            border-radius: 0px 25px 25px 25px;
-        }
-        p{
-            margin: 4px;
-        }
-        .label {
-            font-size: 12px;
-            color: $orange;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
+    .gurmukhi {
+      font-family: "Baloo Paaji 2", cursive;
+      font-size: 24px;
+      font-weight: 700;
 
-        .gurmukhi {
-            font-family: 'Baloo Paaji 2', cursive;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .top-result {
-            color: $almost-black;
-            max-width: 524px;
-            margin-bottom: 16px;
-        }
-
-        .other-results {
-            max-width: 400px;
-
-            .gurmukhi, .translation {
-                font-size: 14px;
-            }
-
-            .translation {
-                margin-bottom: 24px;
-            }
-        }
+      @media screen and (max-width: 650px) {
+        font-size: 18px;
+      }
     }
+
+    .top-result {
+      color: $almost-black;
+      max-width: 524px;
+      margin-bottom: 16px;
+    }
+
+    .other-results {
+      max-width: 400px;
+
+      .gurmukhi,
+      .translation {
+        font-size: 14px;
+      }
+
+      .translation {
+        margin-bottom: 24px;
+      }
+    }
+  }
 }
 
 .question-form {
-    width: 100%;
+  width: 100%;
+  border-radius: 100px;
+  height: 72px;
+  border: 2px solid $translucent-dark-grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: $light-grey;
+
+  input {
+    height: 64px;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    background-color: transparent;
+    margin-left: 24px;
+    font-size: 32px;
+    font-family: "brandon_regular", "sans-serif";
+  }
+
+  button {
+    width: 60px;
+    height: 60px;
     border-radius: 100px;
-    height: 72px;
-    border: 2px solid $translucent-dark-grey;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: $light-grey;
-
-    input {
-        height: 64px;
-        border: none;
-        outline: none;
-        flex-grow: 1;
-        background-color: transparent;
-        margin-left: 24px;
-        font-size: 32px;
-        font-family: 'brandon_regular', 'sans-serif';
-    }
-
-    button {
-        width: 60px;
-        height: 60px;
-        border-radius: 100px;
-        margin-right: 8px;
-        background-color: $almost-black;
-        border: none;
-        cursor: pointer;
-    }
+    margin-right: 8px;
+    background-color: $almost-black;
+    border: none;
+    cursor: pointer;
+  }
 }
