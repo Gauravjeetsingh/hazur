@@ -23,23 +23,35 @@
   }
 }
 
-.meta {
-  .avatar {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background-color: $light-blue;
-    text-align: center;
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: $light-blue;
+  text-align: center;
 
-    > img {
-      margin-top: 16px;
-    }
+  &-sggs {
+    background-color: transparent;
   }
 
-  .user {
-    font-size: 16px;
-    font-family: "brandon_bold", sans-serif;
+  > img {
+    margin-top: 16px;
   }
+}
+
+.message-wrapper {
+  display: flex;
+  align-items: flex-start;
+
+  .message-content {
+    margin-left: 12px;
+  }
+}
+
+.user {
+  font-size: 16px;
+  font-family: "brandon_bold", sans-serif;
+  margin: 0;
 }
 
 .message-container {
