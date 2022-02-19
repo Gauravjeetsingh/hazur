@@ -271,13 +271,82 @@ body {
   margin: 0;
   padding: 0;
 }
+html .star1,
+body .star1 {
+  /* Star 2 */
+  position: absolute;
+  width: 618px;
+  height: 618px;
+  right: 0px;
+  top: 438px;
+  z-index: -5;
+  box-sizing: border-box;
+  border-radius: 50px;
+  animation: rotationClockwise 60s linear infinite;
+}
+html .star2,
+body .star2 {
+  /* Star 3 */
+  position: absolute;
+  width: 618px;
+  height: 618px;
+  right: 0px;
+  top: 442px;
+  z-index: -5;
+  box-sizing: border-box;
+  border-radius: 50px;
+  animation: rotationAntiClockwise 60s linear infinite;
+}
+html .star3,
+body .star3 {
+  /* Star 2 */
+  position: absolute;
+  width: 618px;
+  height: 618px;
+  left: 0px;
+  top: 438px;
+  z-index: -5;
+  box-sizing: border-box;
+  border-radius: 50px;
+  animation: rotationClockwise 60s linear infinite;
+}
+html .star4,
+body .star4 {
+  /* Star 3 */
+  position: absolute;
+  width: 618px;
+  height: 618px;
+  left: 0px;
+  top: 442px;
+  z-index: -5;
+  box-sizing: border-box;
+  border-radius: 50px;
+  animation: rotationAntiClockwise 60s linear infinite;
+}
 
+@keyframes rotationClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationAntiClockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
 body {
   background: linear-gradient(247.44deg, #e5e8ee 0.45%, #eeebe5 100%);
   display: flex;
   align-items: center;
   font-family: "brandon_regular", sans-serif;
   color: #666;
+  overflow: hidden;
 }
 
 .page-wrapper {
