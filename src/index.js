@@ -48,7 +48,7 @@ const getAnswer = async (question, ai) => {
         return selectedDocuments;
       }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(JSON.stringify(err)));
   return apiCall;
 };
 

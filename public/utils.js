@@ -15,15 +15,21 @@ const questionHtml = (question) => {
   )
 }
 
+const createLink = (shabadId, verseId) => (
+  `https://www.sikhitothemax.org/shabad?id=${shabadId}&highlight=${verseId}`
+);
+
 const resultHtml = (topResult, otherResults) => {
   const countSelect = document.querySelector('.source-G .result-count');
   let otherResultsHtml = "";
   if (otherResults.length) {
     otherResultsHtml = `<div class="other-results">
-                          <h3 class="label">Other Results</h3>`;
+                        <h3 class="label">Other Results</h3>`;
     otherResults.forEach((result) => {
-      otherResultsHtml += `<p class="gurmukhi">${result.gurmukhi}</p>
-                  <p class="translation">${result.translation}</p>`;
+      otherResultsHtml += `<a target="_blank" href=${createLink(result.gurmukhi.shabadId, result.gurmukhi.verseId)}>
+                           <p class="gurmukhi">${result.gurmukhi.gurmukhi}</p>
+                           <p class="translation">${result.translation}</p>
+                           </a>`;
     });
     otherResultsHtml += `</div>`;
   }
@@ -36,11 +42,13 @@ const resultHtml = (topResult, otherResults) => {
             <div class="message-content">
               <p class="user">Sri Guru Granth Sahib ji</p>
               <div class="result">
+              <a target="_blank" href=${createLink(topResult.gurmukhi.shabadId, topResult.gurmukhi.verseId)}>
 					      <div class="top-result">
 						      <h3 class="label">Top Result</h3>
-						      <p class="gurmukhi">${topResult.gurmukhi}</p>
+						      <p class="gurmukhi">${topResult.gurmukhi.gurmukhi}</p>
 						      <p class="translation">${topResult.translation}</p>
 					      </div>
+              </a>
                 ${otherResultsHtml}
 				      </div>
             </div>
@@ -70,6 +78,7 @@ const getAnswers = () => {
         if (data.error) {
           msgContainer.innerHTML += errorHtml();
         } else {
+          console.log(data.response);
           msgContainer.innerHTML += resultHtml(
             data.response[0],
             data.response.slice(1)
